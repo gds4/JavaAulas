@@ -1,0 +1,9 @@
+package interfaceGrafica;
+
+
+
+public class ClasseTeste {
+	public static void main(String[] args) {
+		Botao j = new Botao();
+	}
+}

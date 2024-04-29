@@ -1,0 +1,42 @@
+package cadastroFuncionarios;
+
+import java.util.ArrayList;
+
+public class Chefe extends Pessoa{
+
+	public Chefe(String nome, Pessoa chefe, String grauInstrucao) {
+		super(nome, chefe, grauInstrucao);
+		
+	}
+
+	@Override
+	public void listSubordinados(ArrayList<String> nomes) throws RuntimeException {
+		for (Pessoa p : this.subordinados) {
+			nomes.add(p.getNome());
+			if (p instanceof Chefe) {
+				p.listSubordinados(nomes);
+			}
+		}
+		
+	}
+
+	@Override
+	public Pessoa findSubordinado(String nome) {
+		
+		if (this.getNome().equals(nome)) return this;
+		
+		for (Pessoa p : subordinados) {
+			if(p.getNome().equals(nome)) {
+				return p;
+			}
+			if (p instanceof Chefe) {
+				Pessoa q = p.findSubordinado(nome);
+				if(q != null) {
+					return q;
+				}
+			}
+		}
+		return null;
+	}
+
+}

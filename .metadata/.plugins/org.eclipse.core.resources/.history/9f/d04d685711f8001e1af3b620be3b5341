@@ -1,0 +1,10 @@
+package interfaceGrafica;
+
+import javax.swing.JOptionPane;
+
+public class ClasseTeste {
+	public static void main(String[] args) {
+		int resposta = JOptionPane.showConfirmDialog(null,"teste");
+		System.out.println(resposta);
+	}
+}

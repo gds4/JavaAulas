@@ -1,0 +1,58 @@
+package cadastroFuncionarios;
+
+import java.util.ArrayList;
+
+public abstract class Pessoa {
+	private String nome;
+	private Pessoa chefe;
+	protected ArrayList<Pessoa> subordinados;
+	private String grauInstrucao;
+	
+	public Pessoa(String nome, Pessoa chefe, String grauInstrucao) {
+		super();
+		this.nome = nome;
+		this.chefe = chefe;
+		this.grauInstrucao = grauInstrucao;
+		this.subordinados = new ArrayList<Pessoa>();
+	}
+	
+	public abstract void listSubordinados(ArrayList<String> nomes) throws RuntimeException;
+	
+	public abstract Pessoa findSubordinado(String nome) throws RuntimeException;
+	
+	
+	
+	public void listSuperiores(ArrayList<String> superiores) {
+		Pessoa p = this;
+		while(p.chefe != null) {
+			superiores.add(p.getNome());
+			p = p.chefe;
+		}
+	}
+ 
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public Pessoa getChefe() {
+		return chefe;
+	}
+
+	public void setChefe(Pessoa chefe) {
+		this.chefe = chefe;
+	}
+
+	public String getGrauInstrucao() {
+		return grauInstrucao;
+	}
+
+	public void setGrauInstrucao(String grauInstrucao) {
+		this.grauInstrucao = grauInstrucao;
+	}
+	
+	
+}

@@ -1,0 +1,17 @@
+package projetoPesquisa;
+
+public class Professor extends Pesquisador {
+
+	@Override
+	public double getValorPago() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int getQtdSubordinados() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

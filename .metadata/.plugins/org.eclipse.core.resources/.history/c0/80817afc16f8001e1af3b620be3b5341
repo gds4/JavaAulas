@@ -1,0 +1,32 @@
+package interfaceGrafica;
+
+import java.awt.BorderLayout;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
+public class ClasseTeste {
+	public static void main(String[] args) {
+		
+		JFrame j = new JFrame();
+		j.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		JButton b = new JButton("botão sul");
+		j.setLayout(new BorderLayout());
+		j.add(b,BorderLayout.SOUTH);
+		
+		
+		j.setTitle("Janela de Teste");
+		j.setSize(600,480);
+		j.setVisible(true);
+		j.setLocationRelativeTo(null);
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+}

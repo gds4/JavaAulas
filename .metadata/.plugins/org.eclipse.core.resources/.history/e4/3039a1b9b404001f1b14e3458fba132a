@@ -1,0 +1,15 @@
+package projetoPesquisa;
+
+public class ProjetoPesquisa {
+	
+	public void cadastrarPesquisador(Pesquisador pesquisador, Pesquisador coordenador) {
+		coordenador.addPesquisador(pesquisador);
+		
+		coordenador.setValorPago(coordenador.calculaValorPago());
+		pesquisador.setValorPago(pesquisador.calculaValorPago());
+		
+	}
+	
+	
+	
+}

@@ -1,0 +1,10 @@
+package interfaceGrafica;
+
+
+
+public class ClasseTeste {
+	public static void main(String[] args) {
+		Janela j = new Janela();
+		Botao b = new Botao();
+	}
+}

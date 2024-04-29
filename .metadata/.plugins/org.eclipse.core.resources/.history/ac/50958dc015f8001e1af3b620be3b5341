@@ -1,0 +1,22 @@
+package interfaceGrafica;
+
+import java.awt.HeadlessException;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
+public class Botao extends JFrame {
+	JButton jb = new JButton("Botão Sul");
+
+	public Botao(){
+		getContentPane().add(jb);
+		
+		setTitle("Testando");
+		setSize(600,480);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
+		setVisible(true);
+	}
+	
+	
+}

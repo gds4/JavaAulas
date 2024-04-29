@@ -1,0 +1,21 @@
+package interfaceGrafica;
+
+import javax.swing.JFrame;
+import javax.swing.JButton;
+
+
+public class Janela {
+	
+	JFrame jf = new JFrame();
+	
+	
+	public Janela() {
+		
+		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		jf.setTitle("Janela de Teste");
+		jf.setSize(600,480);
+		jf.setVisible(true);
+		jf.setLocationRelativeTo(null);
+	}
+}
