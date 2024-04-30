@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
     <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-        <listEntry value="/arvoreGenealogica/src/arvoreGenealogica/arvoreInterface.java"/>
+        <listEntry value="/arvoreGenealogica/src/ui/arvoreInterface.java"/>
     </listAttribute>
     <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
         <listEntry value="1"/>
     </listAttribute>
     <booleanAttribute key="org.eclipse.jdt.launching.ATTR_EXCLUDE_TEST_CODE" value="true"/>
-    <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="arvoreGenealogica.arvoreInterface"/>
+    <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="ui.arvoreInterface"/>
     <stringAttribute key="org.eclipse.jdt.launching.MODULE_NAME" value="arvoreGenealogica"/>
     <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="arvoreGenealogica"/>
 </launchConfiguration>

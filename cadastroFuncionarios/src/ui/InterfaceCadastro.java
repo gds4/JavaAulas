@@ -1,4 +1,4 @@
-package cadastroFuncionarios;
+package ui;
 
 import java.awt.EventQueue;
 
@@ -7,6 +7,12 @@ import javax.swing.JTabbedPane;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+
+import cadastroFuncionarios.Chefe;
+import cadastroFuncionarios.Empregado;
+import cadastroFuncionarios.Empresa;
+import cadastroFuncionarios.Pessoa;
+
 import javax.swing.JComboBox;
 import javax.swing.JCheckBox;
 import javax.swing.JButton;
@@ -24,6 +30,7 @@ public class InterfaceCadastro {
 	private JComboBox<String> tipoConsultaCB;
 	private JButton consultarBtn;
 	private JComboBox<String> superiorCB;
+	private Empresa empresa = new Empresa(new Chefe("Antonio Carlos Pereira", null,true, true));
 	/**
 	 * Launch the application.
 	 */
@@ -52,11 +59,8 @@ public class InterfaceCadastro {
 	 */
 	private void initialize() {
 		
-		Empresa empresa = new Empresa(new Chefe("Antonio Carlos Pereira", null,true, true));
 		
-		
-		
-		frame = new JFrame();
+		frame = new JFrame("Cadastro");
 		frame.setBounds(100, 100, 383, 357);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);

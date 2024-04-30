@@ -1,7 +1,5 @@
 package labvi;
 import java.time.LocalTime;
-import java.util.Calendar;
-import java.util.Scanner;
 
 public class MusicStore {
 	
@@ -57,11 +55,6 @@ public class MusicStore {
 		
 	}
 	
-	private int getHourInt() { 
-		Calendar c = Calendar.getInstance(); 
-		return c.get(Calendar.HOUR_OF_DAY); 
-	} 
-	
 	 
 	private boolean isOpen() {
 		LocalTime abertura = LocalTime.of(openTime, 0,0);
@@ -98,11 +91,8 @@ public class MusicStore {
 		MusicStore testa_MS = new MusicStore();
 		
 		testa_MS.displayHoursOfOperation();
-
 		
 	}
 
-
-	
 	
 }

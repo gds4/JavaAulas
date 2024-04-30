@@ -5,7 +5,7 @@ public class Filho extends Pessoa {
 	
 	
 	public Filho(String nome, Pessoa ascendente) {
-		super(nome, ascendente);
+		super("Sr. " + nome, ascendente);
 		this.qtdFilhos = 0;
 	}
 	

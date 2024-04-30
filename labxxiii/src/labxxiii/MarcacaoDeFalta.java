@@ -4,7 +4,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import java.awt.BorderLayout;
+
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -12,7 +12,7 @@ import javax.swing.JTextField;
 import javax.swing.JRadioButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JComboBox;
+
 
 public class MarcacaoDeFalta {
 
@@ -55,7 +55,7 @@ public class MarcacaoDeFalta {
 		frmMarcaoDeFalta.getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Numero: ");
-		lblNewLabel.setBounds(27, 36, 46, 14);
+		lblNewLabel.setBounds(27, 36, 60, 14);
 		frmMarcaoDeFalta.getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Nome: ");
@@ -63,7 +63,7 @@ public class MarcacaoDeFalta {
 		frmMarcaoDeFalta.getContentPane().add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Regime: ");
-		lblNewLabel_2.setBounds(27, 125, 46, 14);
+		lblNewLabel_2.setBounds(27, 125, 60, 14);
 		frmMarcaoDeFalta.getContentPane().add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("Numero de Faltas:");
@@ -95,12 +95,12 @@ public class MarcacaoDeFalta {
 		frmMarcaoDeFalta.getContentPane().add(btnNewButton_4);
 		
 		textField = new JTextField();
-		textField.setBounds(83, 33, 135, 20);
+		textField.setBounds(99, 33, 135, 20);
 		frmMarcaoDeFalta.getContentPane().add(textField);
 		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(83, 81, 443, 20);
+		textField_1.setBounds(99, 81, 427, 20);
 		frmMarcaoDeFalta.getContentPane().add(textField_1);
 		textField_1.setColumns(10);
 		
@@ -111,11 +111,11 @@ public class MarcacaoDeFalta {
 		
 		JRadioButton rdbtnNewRadioButton = new JRadioButton("Diurno");
 		rdbtnNewRadioButton.setToolTipText("");
-		rdbtnNewRadioButton.setBounds(79, 121, 75, 23);
+		rdbtnNewRadioButton.setBounds(99, 121, 75, 23);
 		frmMarcaoDeFalta.getContentPane().add(rdbtnNewRadioButton);
 		
 		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("Noturno");
-		rdbtnNewRadioButton_1.setBounds(156, 121, 109, 23);
+		rdbtnNewRadioButton_1.setBounds(189, 121, 109, 23);
 		frmMarcaoDeFalta.getContentPane().add(rdbtnNewRadioButton_1);
 		
 		//adiciona os dois botoes criados em um grupo que evita que ambos os botoes sejam acionados ao mesmo tempo

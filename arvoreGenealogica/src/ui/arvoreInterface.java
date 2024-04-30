@@ -1,4 +1,4 @@
-package arvoreGenealogica;
+package ui;
 
 import java.awt.EventQueue;
 
@@ -7,11 +7,16 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
+
+import arvoreGenealogica.Filho;
+import arvoreGenealogica.Pessoa;
+
 import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 import java.awt.event.ActionEvent;
 import javax.swing.JEditorPane;
 
@@ -23,6 +28,7 @@ public class arvoreInterface {
 	private String nomeSelecionadoComboBox;
 	private JComboBox<String> comboBox;
 	private JEditorPane editorPane;
+	private Filho joao = new Filho("Joao", null);
 	/**
 	 * Launch the application.
 	 */
@@ -50,10 +56,10 @@ public class arvoreInterface {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		Filho anciao = new Filho("anciao", null);
-		anciao.cadastrarFilho("Joao", 'M');
+		
+		
 		ArrayList<String> nomes = new ArrayList<String>();
-		anciao.ListarDescendentes(nomes);
+		nomes.add(joao.getNome());
 		
 		
 		frame = new JFrame();
@@ -70,19 +76,29 @@ public class arvoreInterface {
 		
 		comboBox = new JComboBox<>(nomesFamilia);
 		comboBox.setBounds(80, 50, 107, 22);
-		comboBox.addActionListener(new ActionListener() {
-	
-			@Override
-			public void actionPerformed(ActionEvent e) {
+		comboBox.addActionListener((e) -> {
 				
-				ArrayList<String> descendentes = new ArrayList<String>();
-				anciao.findDescendente((String)comboBox.getSelectedItem()).ListarDescendentes(descendentes);
+			ArrayList<String> ascendentes = new ArrayList<String>();
+			Pessoa p = joao.findByName((String)comboBox.getSelectedItem());
+			
+			if(p != null) {
+				p.ListarAscendentes(ascendentes);
+				String ascendentesStr = ascendentes.stream()
+					.collect(Collectors.joining("\n"));
+				
+				editorPane.setText(ascendentesStr);
+				/*
+				Sem utilizar Stream:
+				
 				StringBuilder strEditorPane = new StringBuilder();
-				for(String descendente : descendentes) {
-					strEditorPane.append(descendente).append("\n");
+				for(String ascendente : ascendentes) {
+					strEditorPane.append(ascendentes).append("\n");
 				}
 				editorPane.setText(strEditorPane.toString());
+				*/
+
 			}
+				
 		});
 
 		
@@ -132,21 +148,28 @@ public class arvoreInterface {
 			public void actionPerformed(ActionEvent e) {
 				String nomeDescendente = descendenteField.getText();
 				nomeSelecionadoComboBox = (String) comboBox.getSelectedItem();
-				System.out.println(generoSelecionado);
-				System.out.println(nomeSelecionadoComboBox);
 				
-				Pessoa p = anciao.findDescendente(nomeSelecionadoComboBox);
+				Pessoa p = joao.findByName(nomeSelecionadoComboBox);
 				if(p != null){
 					
-					Pessoa d = p.cadastrarFilho(nomeDescendente, generoSelecionado);
-					if(d != null) {
-						comboBox.addItem(d.getNome());
+					Pessoa d;
+					try {
+						d = p.cadastrarFilho(nomeDescendente, generoSelecionado);
+						
+						if(d != null) {
+							comboBox.addItem(d.getNome());
+						}
+						
+					} catch (Exception e1) {
+						
+						JOptionPane.showMessageDialog(null, "Natimortos não podem cadastrar filhos.");
 					}
+					
 			
 					
 				}else {
 					
-					JOptionPane.showMessageDialog(null, "Erro");
+					JOptionPane.showMessageDialog(null, "Parente não encontrado");
 				}
 				
 				

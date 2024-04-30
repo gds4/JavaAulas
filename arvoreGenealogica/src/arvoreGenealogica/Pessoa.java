@@ -14,20 +14,15 @@ public abstract class Pessoa {
 		this.ascendente = ascendente;
 	}
 	
-	public abstract Pessoa cadastrarFilho(String nome,char sexo);
+	
+	public abstract Pessoa cadastrarFilho(String nome,char sexo) throws Exception;
 
 	public String getNome() {
 		return nome;
 	}
 
 	public void setNome(String nome) {
-		if(this instanceof Filho) {
-			this.nome = "Sr. " + nome;
-		}else if(this instanceof Filha){
-			this.nome = "Sra. " + nome;
-		}else if(this instanceof Natimorto) {
-			this.nome = "Natimorto " + nome;
-		}
+		this.nome = nome;
 	}
 
 	public Pessoa getAscendente() {
@@ -47,12 +42,11 @@ public abstract class Pessoa {
 	}
 	
 	
-	public void ListarAscendentes() {
+	public void ListarAscendentes(ArrayList<String> nomes) {
 		Pessoa p = this;
-		System.out.println(nome);
-
+		
 		while (p.ascendente != null) {
-			System.out.println(p.ascendente.nome);
+			nomes.add(p.ascendente.getNome());
 			p = p.ascendente;
 		}
 	}
@@ -61,17 +55,20 @@ public abstract class Pessoa {
 		descendentes.add(descendente);
 	}
 	
-	public Pessoa findDescendente(String nome) {
+	public Pessoa findByName(String nome) {
+		if(this.getNome().equals(nome)) {
+			return this;
+		}
+		
 		for(Pessoa p : descendentes) {
-			if(p.getNome().equalsIgnoreCase(nome)) {
+			if(p.getNome().equals(nome)) {
 				return p;
 			}else {
-				 Pessoa descendenteatual = p.findDescendente(nome);
+				 Pessoa descendenteatual = p.findByName(nome);
 		         if (descendenteatual != null) {
 		              return descendenteatual;
 		         }
 			}
-			
 		}
 		return null;
 	}

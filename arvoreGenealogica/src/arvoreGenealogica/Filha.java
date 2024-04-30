@@ -4,7 +4,7 @@ public class Filha extends Pessoa {
 
 	
 	public Filha(String nome, Pessoa ascendente) {
-		super(nome, ascendente);
+		super("Sra. " + nome, ascendente);
 	}
 	
 	
