@@ -21,7 +21,6 @@ import javax.swing.SwingConstants;
 public class Janela {
 
 	private JFrame frame;
-	private JTextField letraEscolhidaTF;
 	private Jogo jogo = new Jogo();
 	/**
 	 * Launch the application.
@@ -91,14 +90,14 @@ public class Janela {
 		panel.setLayout(null);
 		
 		Forca forcaPanel = new Forca();
-		forcaPanel.setBounds(10, 10, 250, 250);
+		forcaPanel.setBounds(10, 10, 250, 300);
 		panel.add(forcaPanel);
 		
 		JLabel lblNewLabel = new JLabel("Letra:");
 		lblNewLabel.setBounds(376, 86, 46, 14);
 		panel.add(lblNewLabel);
 		
-		letraEscolhidaTF = new JTextField();
+		JTextField letraEscolhidaTF = new JTextField();
 		letraEscolhidaTF.setBounds(441, 83, 161, 20);
 		panel.add(letraEscolhidaTF);
 		letraEscolhidaTF.setColumns(10);
@@ -110,7 +109,7 @@ public class Janela {
 
 		JLabel textoEscondidoLabel = new JLabel("");
 		textoEscondidoLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		textoEscondidoLabel.setBounds(10, 287, 250, 14);
+		textoEscondidoLabel.setBounds(10, 312, 250, 23);
 		panel.add(textoEscondidoLabel);
 		
 		JLabel letrasEscolhidasLabel = new JLabel("");
@@ -146,24 +145,68 @@ public class Janela {
 		
 		JButton btnNewButton_1 = new JButton("JOGAR");
 		btnNewButton_1.addActionListener(new ActionListener() {
+			
+			
+			
 			public void actionPerformed(ActionEvent e) {
-				try {
-					
-					
-					jogo.setLetraEscolhida(letraEscolhidaTF.getText());
-					letrasEscolhidasLabel.setText(jogo.getLetrasEscolhidas());
-					
-					
-					if(jogo.temLetra(letraEscolhidaTF.getText())) {
-						textoEscondidoLabel.setText(jogo.getPalavraEscondida());
-					}else {
-						//desenhar na forca
-					}
-					
-				}catch(Exception e9){
-					JOptionPane.showMessageDialog(null,"Você deve escolher uma letra");
-				}
 				
+				if(jogo.getItemSelecionado() == null) {
+					JOptionPane.showMessageDialog(null,"Selecione uma categoria para iniciar!");
+				}else {
+					
+					try {
+						String letra = letraEscolhidaTF.getText();
+						if(letra.length() != 1) {
+							System.out.println(jogo.getItemSelecionado()+ " " + jogo.getPalavraEscondida() + "|");
+							JOptionPane.showMessageDialog(null,"Você deve escolher apenas uma letra");
+							
+						}else {
+							
+							if(jogo.JaEscolheuLetra(letra)) {
+								JOptionPane.showMessageDialog(null,"Você já escolheu essa letra.\nEscolha outra!");
+								
+							}else {
+								
+								jogo.setLetraEscolhida(letra);
+								letrasEscolhidasLabel.setText(jogo.getLetrasEscolhidas());
+								
+								if(jogo.temLetra(letra)) {
+									textoEscondidoLabel.setText(jogo.getPalavraEscondida());
+									letraEscolhidaTF.setText(null);
+								}else {
+									//desenhar na forca
+									forcaPanel.aumentaContador();
+									forcaPanel.repaint();
+
+								}
+							}
+						}
+						
+						
+					
+					}catch(Exception e9){
+						JOptionPane.showMessageDialog(null,"Você deve escolher uma letra");
+					}
+				
+					
+					if(forcaPanel.morreu() || jogo.ganhou(jogo.getItemSelecionado(), jogo.getPalavraEscondida())) {
+						if(forcaPanel.morreu()) {
+						JOptionPane.showMessageDialog(null,"GAME OVER!\nA palavra era: " + jogo.getItemSelecionado());
+						
+						}
+						
+						if(jogo.ganhou(jogo.getItemSelecionado(), jogo.getPalavraEscondida())) {
+							JOptionPane.showMessageDialog(null,"PARABÉNS VOCÊ GANHOU!");
+						}
+						
+						jogo.reiniciaJogo();
+						forcaPanel.reiniciaContador();
+						forcaPanel.repaint();									
+						letrasEscolhidasLabel.setText(null);
+						textoEscondidoLabel.setText(null);
+					}
+							
+				}
 				
 			}
 		});

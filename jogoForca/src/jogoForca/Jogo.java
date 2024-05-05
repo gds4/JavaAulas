@@ -32,6 +32,9 @@ public class Jogo {
 	private String[] novelas = {"Avenida Brasil", "Vale Tudo", "Roque Santeiro", "Tieta", "Fera Ferida", "Mulheres de Areia"};
 	private String[] carros = {"Ferrari", "Tesla Model S", "Ford Mustang", "Toyota Corolla", "Uno", "Honda Civic"};
 	private String itemSelecionado;
+
+	
+	
 	//private String ItemEscondido;
 	
 	
@@ -100,7 +103,7 @@ public class Jogo {
 						if(str.toLowerCase().charAt(j) == c.toLowerCase().charAt(0)) {
 							
 							StringBuilder strBuilder = new StringBuilder(ListaStrFinal.get(i));
-							strBuilder.setCharAt(j, this.itemSelecionado.charAt(j));
+							strBuilder.setCharAt(j, nomeItemSeparado.get(i).charAt(j));
 							ListaStrFinal.set(i, strBuilder.toString());
 							
 						}
@@ -121,5 +124,12 @@ public class Jogo {
 		return this.itemSelecionado.toLowerCase().contains(c.toLowerCase());
 	}
 	
+	public void reiniciaJogo() {
+		this.letrasEscolhidas.clear();
+		this.itemSelecionado = null;
+	}
 	
+	public boolean ganhou(String itemSelecionado, String textoEscondido) {
+		return itemSelecionado.equals(textoEscondido);
+	}
 }

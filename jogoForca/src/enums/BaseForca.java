@@ -1,53 +1,56 @@
 package enums;
 
 public enum BaseForca {
-	BASE(101, 239,70,10);
-	//PILARVERTICAL()
+	BASE(51, 239,110,20),
+	PILARVERTICAL(83,40,20,199),
+	PILARHORIZONTAL(103,40,110,10),
+	CORDA(201,50,201,65),
+	FORCA(176,65,50,50);
 	
 	
-	private int valor_1;
-	private int valor_2;	
-	private int valor_3;	
-	private int valor_4;
+	private int valor1;
+	private int valor2;	
+	private int valor3;	
+	private int valor4;
 	
 	
-	private BaseForca(int valor_1, int valor_2, int valor_3, int valor_4) {
-		this.valor_1 = valor_1;
-		this.valor_2 = valor_2;
-		this.valor_3 = valor_3;
-		this.valor_4 = valor_4;
+	private BaseForca(int valor1, int valor2, int valor3, int valor4) {
+		this.valor1 = valor1;
+		this.valor2 = valor2;
+		this.valor3 = valor3;
+		this.valor4 = valor4;
 	}
 	
-	public int getValor_1() {
+	public int getValor1() {
 		
-		return valor_1;
+		return valor1;
 	}
 	
-	public void setValor_1(int valor_1) {
-		this.valor_1 = valor_1;
+	public void setValor1(int valor1) {
+		this.valor1 = valor1;
 	}
-	public int getValor_2() {
-		return valor_2;
-	}
-	
-	public void setValor_2(int valor_2) {
-		this.valor_2 = valor_2;
+	public int getValor2() {
+		return valor2;
 	}
 	
-	public int getValor_3() {
-		return valor_3;
+	public void setValor2(int valor2) {
+		this.valor2 = valor2;
 	}
 	
-	public void setValor_3(int valor_3) {
-		this.valor_3 = valor_3;
+	public int getValor3() {
+		return valor3;
 	}
 	
-	public int getValor_4() {
-		return valor_4;
+	public void setValor3(int valor3) {
+		this.valor3 = valor3;
 	}
 	
-	public void setValor_4(int valor_4) {
-		this.valor_4 = valor_4;
+	public int getValor4() {
+		return valor4;
+	}
+	
+	public void setValor4(int valor4) {
+		this.valor4 = valor4;
 	}
 	
 	
